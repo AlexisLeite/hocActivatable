@@ -1,0 +1,82 @@
+HTTP/1.1 200 OK
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<data onClose="">
+  <load
+      canClose="true"
+      type="form">
+    <form
+        multiPart="false"
+        ajaxNewPanel="false"
+        showErrors="false"
+        doEscape="false"
+        action=""
+        onLoad=""
+        ajaxsubmit="false"
+        closeAll="false"
+        title="Dependencias"
+        autoExpand="true"
+        titleClass=""
+        addClass="">
+      <elements>
+        <element
+            onChange=""
+            readonly="false"
+            name=""
+            valueAsAttribute="true"
+            html="false"
+            text="Dependencias con usuarios"
+            id=""
+            title=""
+            type="2columnTitle"
+            value=""
+            selected="false" />
+        <element
+            onChange=""
+            readonly="false"
+            name=""
+            valueAsAttribute="true"
+            html="false"
+            text=""
+            id=""
+            title=""
+            type="2column"
+            value="admin "
+            selected="false" />
+        <element
+            onChange=""
+            readonly="false"
+            name=""
+            valueAsAttribute="true"
+            html="false"
+            text=""
+            id=""
+            title=""
+            type="2column"
+            value="adminst "
+            selected="false" />
+        <element
+            onChange=""
+            readonly="false"
+            name=""
+            valueAsAttribute="true"
+            html="false"
+            text=""
+            id=""
+            title=""
+            type="2column"
+            value="compras_admin "
+            selected="false" />
+      </elements>
+      <buttons>
+        <button
+            onclick="downloadElementDependencies('2667')"
+            text="Descargar dependencias"
+            id=""
+            type="button" />
+      </buttons>
+    </form>
+  </load>
+</data>

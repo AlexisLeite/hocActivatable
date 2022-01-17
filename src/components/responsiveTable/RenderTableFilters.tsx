@@ -1,94 +1,86 @@
 /** @jsxImportSource theme-ui */
-import React from "react";
-import { useResponsiveTableContext } from "./ResponsiveTableContext";
+import React from 'react';
+import ApiaFilter from '../ApiaFilter';
 import {
-  TResponsiveTableFilter,
-  TResponsiveTableFilterValue,
-} from "./responsiveTableTypes";
+  TResponsiveTableContext,
+  useResponsiveTableContext,
+} from './context.ResponsiveTable';
+import { IResponsiveTableProps } from './state.ResponsiveTable';
 
-const RenderFilter = ({ filter }: { filter?: TResponsiveTableFilter }) => {
-  const { onFilterBlur, onFilterChange } = useResponsiveTableContext();
-  const [value, setValue] = React.useState<TResponsiveTableFilterValue>(
-    filter?.currentValue ?? ""
-  );
+export type IInnerRender = Pick<
+  TResponsiveTableContext,
+  'showAdditionalColumn' | 'nonAdditionalColumns'
+> &
+  Pick<IResponsiveTableProps, 'onFilterChange' | 'onFilterBlur' | 'filters'>;
 
-  const filterCurrentValue = filter?.currentValue;
-  React.useEffect(() => {
-    if (typeof filterCurrentValue !== "undefined") {
-      setValue(filterCurrentValue);
-    }
-  }, [filterCurrentValue]);
+const InnerRender = React.memo(
+  ({
+    showAdditionalColumn,
+    nonAdditionalColumns,
+    filters,
+    onFilterChange,
+    onFilterBlur,
+  }: IInnerRender) => {
+    return filters && filters.length > 0 ? (
+      <tr className="headRow filtersRow">
+        {showAdditionalColumn && (
+          <th className="tableHeaderFilter stickyColumn" />
+        )}
+        {nonAdditionalColumns.map((column) => {
+          const filter = filters.find(
+            (currentFilter) => currentFilter.column === column.name,
+          );
 
-  if (filter) {
-    const handleChange = (
-      ev: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-    ) => {
-      if (onFilterChange)
-        onFilterChange({
-          columnName: filter.columnName,
-          currentValue: ev.target.value,
-        });
-      setValue(ev.target.value);
-    };
-    const handleBlur = (
-      ev: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-    ) => {
-      if (onFilterBlur)
-        onFilterBlur({
-          columnName: filter.columnName,
-          currentValue: ev.target.value,
-        });
-    };
-
-    return filter.options ? (
-      <select
-        onChange={handleChange}
-        onBlur={handleBlur}
-        defaultValue={filter.currentValue}
-        value={value}
-      >
-        {filter.options.map((option) => {
           return (
-            <option value={option.value} key={option.value}>
-              {option.label}
-            </option>
+            <th key={column.name} className="tableHeaderFilter">
+              {filter ? (
+                <ApiaFilter
+                  filter={filter}
+                  onChange={(ev) => {
+                    if (onFilterChange)
+                      onFilterChange({
+                        filter,
+                        value: ev,
+                      });
+                  }}
+                  onBlur={(ev) => {
+                    if (onFilterBlur)
+                      onFilterBlur({
+                        filter,
+                        value: ev,
+                      });
+                  }}
+                />
+              ) : null}
+            </th>
           );
         })}
-      </select>
-    ) : (
-      <input
-        defaultValue={filter.currentValue}
-        value={value}
-        type={filter.type ?? "text"}
-        placeholder={filter?.placeholder}
-        onChange={handleChange}
-        onBlur={handleBlur}
-      />
-    );
-  }
-  return null;
-};
+      </tr>
+    ) : null;
+  },
+);
+InnerRender.displayName = 'InnerRender';
 
 const RenderTableFilters = () => {
-  const { columns, filters } = useResponsiveTableContext();
+  const {
+    showAdditionalColumn,
+    nonAdditionalColumns,
+    filters,
+    onFilterBlur,
+    onFilterChange,
+  } = useResponsiveTableContext();
 
-  return filters && filters.length > 0 ? (
-    <tr>
-      {columns.map((column) => {
-        const filter = filters.find(
-          (currentFilter) => currentFilter.columnName === column.name
-        );
-        return (
-          <th
-            key={column.name}
-            sx={{ variant: "layout.responsiveTable.filter" }}
-          >
-            <RenderFilter filter={filter} />
-          </th>
-        );
-      })}
-    </tr>
-  ) : null;
+  return (
+    <InnerRender
+      {...{
+        showAdditionalColumn,
+        nonAdditionalColumns,
+        filters,
+        onFilterBlur,
+        onFilterChange,
+      }}
+    />
+  );
 };
 
 export default RenderTableFilters;

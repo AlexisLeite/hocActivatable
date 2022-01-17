@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<data onClose="">
+  <sysMessages>
+    <message text="El grupo est&#225; siendo usado y no puede deseleccionarse el checkbox &quot;Todos los ambientes&quot;." />
+  </sysMessages>
+</data>

@@ -1,0 +1,62 @@
+HTTP/1.1 200 OK
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<data onClose="">
+  <load
+      canClose="true"
+      type="form">
+    <form
+        multiPart="true"
+        ajaxNewPanel="false"
+        showErrors="true"
+        doEscape="false"
+        action="/Apia/apia.administration.GroupsAction.run?tabId=1642192299691&amp;tokenId=1642192120169&amp;action=ajaxUploadFile&amp;isAjax=true"
+        onLoad=""
+        ajaxsubmit="false"
+        closeAll="true"
+        title="Subir archivo"
+        autoExpand="true"
+        titleClass=""
+        addClass="">
+      <elements>
+        <element
+            onChange=""
+            valueAsAttribute="true"
+            title=""
+            type="file"
+            mandatory="true"
+            size="49%"
+            readonly="false"
+            name="file"
+            html="false"
+            text="Archivo"
+            id="file"
+            class="validate['required']"
+            normalWhiteSpace="true"
+            value=""
+            selected="false" />
+        <element
+            onChange=""
+            readonly="false"
+            name=""
+            valueAsAttribute="true"
+            html="true"
+            text=""
+            id=""
+            title=""
+            type="2column"
+            value="&lt;div class='progressBarContainer' id='progressBarContainer'&gt;&lt;div class='progressBar' id='progressBar'&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id='progressMessages'&gt;&lt;/div&gt;"
+            selected="false" />
+      </elements>
+      <buttons>
+        <button
+            onclick="disableModal(this.parentNode.parentNode);ajaxUploadClearStatus();ajaxUploadCallStatusUrl()"
+            text="Subir archivo"
+            id=""
+            type="submit" />
+      </buttons>
+    </form>
+  </load>
+</data>

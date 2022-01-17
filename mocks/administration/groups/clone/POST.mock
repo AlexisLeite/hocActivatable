@@ -1,0 +1,48 @@
+HTTP/1.1 200 OK
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<data onClose="">
+  <load
+      canClose="true"
+      type="form">
+    <form
+        multiPart="false"
+        ajaxNewPanel="false"
+        showErrors="true"
+        doEscape="false"
+        action="/apia.administration.GroupsAction.run?tabId=1642181324364&amp;tokenId=1642181300352&amp;action=confirmClone&amp;isAjax=true"
+        onLoad=""
+        ajaxsubmit="true"
+        closeAll="false"
+        title="Clonar grupo: 1_COMERCIAL"
+        autoExpand="false"
+        titleClass=""
+        addClass="">
+      <elements>
+        <element
+            onChange=""
+            valueAsAttribute="true"
+            title=""
+            type="text"
+            mandatory="true"
+            readonly="false"
+            name="poolName"
+            html="false"
+            text="Nombre"
+            id="poolName"
+            class="validate['required','~validName']"
+            value=""
+            selected="false" />
+      </elements>
+      <buttons>
+        <button
+            onclick=""
+            text="Clonar"
+            id=""
+            type="submitAjax" />
+      </buttons>
+    </form>
+  </load>
+</data>

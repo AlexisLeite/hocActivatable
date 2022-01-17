@@ -1,0 +1,58 @@
+<data onClose="">
+  <load
+      canClose="true"
+      type="form">
+    <form
+        multiPart="false"
+        ajaxNewPanel="false"
+        showErrors="true"
+        doEscape="false"
+        action=""
+        onLoad=""
+        ajaxsubmit="false"
+        closeAll="true"
+        title="Eliminaci&#243;n de elementos"
+        autoExpand="false"
+        titleClass=""
+        addClass="">
+      <elements>
+        <element
+            onChange=""
+            readonly="false"
+            name=""
+            valueAsAttribute="true"
+            html="false"
+            text=""
+            id=""
+            title=""
+            type="2column"
+            value="Cantidad eliminada: 0"
+            selected="false" />
+        <element
+            onChange=""
+            readonly="false"
+            name=""
+            valueAsAttribute="true"
+            html="false"
+            text=""
+            id=""
+            title=""
+            type="empty"
+            value=""
+            selected="false" />
+        <element
+            onChange=""
+            readonly="false"
+            name=""
+            valueAsAttribute="true"
+            html="false"
+            text=""
+            id=""
+            title=""
+            type="2column"
+            value="No se pueden eliminar porque tienen dependencias: 1_14_AMBIENTE_2"
+            selected="false" />
+      </elements>
+    </form>
+  </load>
+</data>

@@ -1,5 +1,5 @@
 const DefaultLabels = {
-  noRegisters: "No hay ningún registro para mostrar",
+  noRegisters: 'No hay ningún registro para mostrar',
 };
 
 export default DefaultLabels;
