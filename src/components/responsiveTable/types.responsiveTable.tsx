@@ -54,6 +54,7 @@ EVENTS
 */
 
 export type TResponsiveTableSortChangeEvent = {
+  columnIndex: number;
   columnName: string;
   sort: TResponsiveTableSortOptions;
 };

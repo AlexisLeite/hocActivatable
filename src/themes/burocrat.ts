@@ -70,6 +70,8 @@ const Burocrat: Theme = {
     form: {
       bg: "white",
       p: "4",
+      border: "1px solid",
+      borderColor: darken("lightBlue", 0.05),
     },
     buttonBar: {
       my: ["3", "4", "4"],
@@ -151,6 +153,15 @@ const Burocrat: Theme = {
       variant: "layout.modal",
       maxWidth: ["95vw", null, "95vw"],
       height: [null, null, "95vh"],
+    },
+    "modal-flex": {
+      variant: "layout.modal",
+      maxWidth: "95vw",
+      maxHeight: "95vh",
+
+      ".modalContent": {
+        overflow: "auto",
+      },
     },
     confirmModal: {
       display: "flex",
@@ -516,13 +527,13 @@ const Burocrat: Theme = {
       pl: "4",
       pr: "4",
       width: ["100%", "auto", "auto"],
-      cursor: "pointer",
       borderRadius: "default",
       fontWeight: "normal",
       textTransform: "uppercase",
       userSelect: "none",
       transition: "background-color 300ms ease-out, color 300ms ease-out",
       wordBreak: "keep-all",
+      cursor: "pointer",
       ":hover": (theme) => ({
         bg: darken(getColor(theme, "primary") as string, 0.12),
       }),
@@ -630,9 +641,13 @@ const Burocrat: Theme = {
       }),
     },
     accordion: {
+      h2: {
+        margin: 0,
+        fontSize: "1.2em",
+      },
+      fontSize: "1em",
       color: "darkBlue",
       fontFamily: "heading",
-      fontSize: "1.2em",
       fontWeight: "bold",
       bg: "lightBlue",
       cursor: "pointer",
@@ -650,6 +665,8 @@ const Burocrat: Theme = {
       borderTop: "1px solid",
       borderBottom: "none",
       textTransform: "none",
+      border: "1px solid",
+      borderColor: darken("lightBlue", 0.05),
       transition: "background-color 300ms ease-out, color 300ms ease-out",
       ":focus": (theme) => ({
         outlineColor: "outlineColor",
@@ -685,11 +702,12 @@ const Burocrat: Theme = {
     },
     outline: {
       variant: "primary",
-      bg: "transparent",
+      cursor: "pointer",
       color: "primary",
       border: "1px solid",
       borderColor: "primary",
       borderRadius: "default",
+      bg: "white",
       ":hover": () => ({
         bg: "#e9e9e9",
       }),

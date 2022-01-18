@@ -32,7 +32,7 @@ const InnerRender = React.memo(
         {showAdditionalColumn && <th className="stickyColumn" />}
         {nonAdditionalColumns
           .filter((column) => !column.asMoreInformation)
-          .map((column) => {
+          .map((column, columnIndex) => {
             // Theme variant
             let Icon: IconType | (() => JSX.Element) = EmptyFragment;
             if (column.enableSorting) {
@@ -78,6 +78,7 @@ const InnerRender = React.memo(
 
                         if (onSortChange)
                           onSortChange({
+                            columnIndex,
                             columnName: column.name,
                             sort: newSort,
                           });

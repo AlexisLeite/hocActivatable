@@ -1,9 +1,0 @@
-HTTP/1.1 200 OK
-Content-Type: text/xml
-Access-Control-Allow-Origin: *
-
-<?xml version="1.0" encoding="iso-8859-1"?>
-<images>
-  <image path="/Apia/images/uploaded/1403708476.JPEG"  name="accion"  description="acci&#243;n"  id="1403708476.JPEG" />
-  <image path="/Apia/images/uploaded/1496268099.png"  name="aeiou"  description="&#225;&#233;&#237;&#243;&#250;"  id="1496268099.png" />
-</images>

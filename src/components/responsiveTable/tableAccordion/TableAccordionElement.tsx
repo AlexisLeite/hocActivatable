@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
 /** @jsxImportSource theme-ui */
-import * as React from "react";
-import { FaPlus, FaMinus } from "@meronex/icons/fa";
-import { useTraceUpdate } from "../../../utils/utils";
+import * as React from 'react';
+import { FaPlus, FaMinus } from '@meronex/icons/fa';
+import { useTraceUpdate } from '../../../../utils/util/utils';
 
 const ExpandedIcons = React.memo(({ collapsed }: { collapsed: boolean }) => {
   if (collapsed) {
@@ -11,7 +11,7 @@ const ExpandedIcons = React.memo(({ collapsed }: { collapsed: boolean }) => {
       <FaPlus
         className="expandIcon"
         sx={{
-          ml: "4",
+          ml: '4',
         }}
       />
     );
@@ -20,7 +20,7 @@ const ExpandedIcons = React.memo(({ collapsed }: { collapsed: boolean }) => {
     <FaMinus
       className="collapseIcon"
       sx={{
-        ml: "4",
+        ml: '4',
       }}
     />
   );
@@ -39,7 +39,7 @@ export interface ITableAccordionElement {
   rowIndex: number;
 }
 
-ExpandedIcons.displayName = "Expanded Icons";
+ExpandedIcons.displayName = 'Expanded Icons';
 
 const TableAccordionElement = React.memo(
   React.forwardRef<HTMLElement, ITableAccordionElement>(
@@ -56,7 +56,7 @@ const TableAccordionElement = React.memo(
         locked,
         rowIndex,
       }: ITableAccordionElement,
-      outerRef
+      outerRef,
     ): JSX.Element => {
       const [state, setState] = React.useState({
         expanded: false,
@@ -64,7 +64,7 @@ const TableAccordionElement = React.memo(
       });
       const ref = React.useRef<HTMLDivElement>(null);
 
-      console.log("render");
+      console.log('render');
       useTraceUpdate({
         collapsed,
         title,
@@ -99,8 +99,8 @@ const TableAccordionElement = React.memo(
         <article
           aria-label={title}
           ref={outerRef}
-          className={`accordionElement ${className ?? ""} ${
-            locked ? "locked" : ""
+          className={`accordionElement ${className ?? ''} ${
+            locked ? 'locked' : ''
           }`}
         >
           <button
@@ -138,10 +138,10 @@ const TableAccordionElement = React.memo(
           </div>
         </article>
       );
-    }
-  )
+    },
+  ),
 );
 
-TableAccordionElement.displayName = "TableAccordionElement";
+TableAccordionElement.displayName = 'TableAccordionElement';
 
 export default TableAccordionElement;

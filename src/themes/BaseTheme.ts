@@ -302,45 +302,170 @@ const BaseTheme: Theme = {
         },
       },
     },
+    imageContainer: {
+      bg: "primary",
+      p: 3,
+      display: "flex",
+      flexBasis: "184px",
+      alignItems: ["center", null, "stretch"],
+      flexDirection: "column",
+      gap: 2,
+
+      img: {
+        width: "150px",
+        height: "150px",
+      },
+
+      ".imagesModal": {
+        ".spinner": {
+          textAlign: "center",
+        },
+        ".error": {
+          color: "darkred",
+          mb: 0,
+        },
+      },
+
+      '[role="grid"]': {
+        '[role="row"]': {
+          display: "grid",
+          gap: 3,
+          mb: 3,
+          "& div:active": {
+            outline: "3px solid",
+            outlineColor: "outlineColor",
+          },
+          "& div:focus": {
+            outline: "3px solid",
+            outlineColor: "outlineColor",
+          },
+        },
+        div: {
+          display: "inline-block",
+          background: "none",
+          border: "none",
+
+          img: {
+            display: "block",
+            width: "150px",
+            height: "150px",
+          },
+        },
+      },
+    },
     admin: {
       upsertion: {
+        px: [2, null, null, 0],
         maxWidth: "admin",
-        h1: {
-          my: 4,
+        header: {
+          position: "sticky",
+          bg: "background",
+
+          top: 0,
           borderBottom: "1px solid",
+          my: 4,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: ["center", null, null, "end"],
+          flexDirection: ["column", null, null, "row"],
+          pb: 1,
+          h1: {
+            my: 0,
+            pb: 1,
+          },
+          nav: {
+            width: ["100%", null, "auto"],
+            display: "flex",
+            alignItems: "stretch",
+            flexDirection: ["column", null, "row"],
+            gap: 1,
+          },
         },
-        form: {
-          fieldset: {
+        fieldset: {
+          variant: "layout.form",
+          background: "white",
+          left: 0,
+          font: "inherit",
+          p: 3,
+
+          legend: {
+            variant: "buttons.accordion",
+            left: "-17px",
+            width: "calc(100% + 34px)",
+            position: "relative",
             border: "1px solid",
-            borderColor: "#bbb",
-            font: "inherit",
-            legend: {
-              fontSize: "text.h2",
+            px: 3,
+            py: 2,
+            h2: {
+              margin: 0,
             },
-            "& > div": {
-              //The flex
-              gap: 3,
-              ".ImageContainer": {},
-              ".Container": {
-                flexGrow: 1,
-                flexBasis: "100%",
-                "& label": {
-                  h3: {
-                    margin: 0,
-                    marginBottom: 1,
-                  },
+          },
+          "& > div": {
+            //The flex
+            gap: 3,
+            flexDirection: ["column", null, "row"],
+          },
+          ".ImageContainer": {
+            variant: "layout.imageContainer",
+          },
+          ".Container": {
+            flexGrow: 1,
+            flexBasis: "100%",
+            "h3,h4": {
+              marginTop: 3,
+              marginBottom: 2,
+            },
 
-                  "&.label-flex": {
-                    display: "flex",
-                    alignItems: "end",
-                  },
-                },
+            ".label-flex": {
+              display: "flex",
+              alignItems: "center",
+              marginBottom: 0,
+            },
 
-                textarea: {
-                  height: "15vh",
-                },
+            "& label": {
+              display: "block",
+              marginBottom: 3,
+              h3: {
+                marginTop: 0,
+              },
+              h4: {
+                margin: 0,
               },
             },
+
+            textarea: {
+              height: "15vh",
+            },
+
+            ".environments": {
+              display: "flex",
+              flexWrap: "wrap",
+              listStyle: "none",
+              gap: 2,
+              padding: 0,
+              marginTop: 0,
+              mb: 2,
+
+              button: {
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "stretch",
+                px: 3,
+                py: 2,
+                gap: 2,
+                cursor: "pointer",
+              },
+            },
+          },
+
+          ".Container.SimulationData": {
+            gridTemplateColumns: [
+              "1r",
+              null,
+              null,
+              "1fr 1fr",
+              "1fr 1fr 1fr 1fr",
+            ],
           },
         },
       },

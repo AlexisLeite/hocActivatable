@@ -29,7 +29,7 @@ export type TButtonFormAction =
   | "onConfirmError"
   | "btnCloseTab";
 
-export type TModalSize = "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
+export type TModalSize = "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl" | "flex";
 
 export type TApiaButtonType =
   | "primary"
