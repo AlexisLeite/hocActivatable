@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import Explanation from "../src/Explanation";
-import { hide, show } from "../src/FakeModa";
+import { hide, show } from "../src/FakeModal";
 import { RenderActivatables } from "../src/hocActivatables";
 
 async function fakeFetch(name: string) {
