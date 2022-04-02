@@ -2,7 +2,7 @@
 import React from "react";
 import Explanation from "../src/Explanation";
 import { hide, show } from "../src/FakeModa";
-import { hocActivatable, RenderActivatables } from "../src/hocActivatables";
+import { RenderActivatables } from "../src/hocActivatables";
 
 async function fakeFetch(name: string) {
   // do some fetch
