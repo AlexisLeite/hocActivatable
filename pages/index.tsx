@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
+<<<<<<< HEAD
 import { hocActivatable, RenderActivatables } from "../src/hocActivatables";
 
 interface ICartelito {
@@ -20,6 +21,22 @@ function Cartelito({ name }: ICartelito) {
     >
       {name}
     </div>
+=======
+
+const Home = () => {
+  const [value, setValue] = React.useState((newValue = 1) => {
+    console.log("rendering state");
+    return newValue;
+  });
+
+  return (
+    <>
+      <button className="Papas" onClick={() => setValue(value + 1)}>
+        Update
+      </button>
+      {value}
+    </>
+>>>>>>> 0ecea0e5a61fee9de3b276de11f5bd56357e1090
   );
 }
 
