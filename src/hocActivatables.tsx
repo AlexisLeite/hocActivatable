@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import EventEmitter from "./eventEmitter";
+import EventEmitter from "./EventEmitter";
 
 export interface IComponentDefinition<PropsType> {
   index: number;

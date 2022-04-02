@@ -1,55 +1,55 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-<<<<<<< HEAD
+import Explanation from "../src/Explanation";
+import { hide, show } from "../src/FakeModa";
 import { hocActivatable, RenderActivatables } from "../src/hocActivatables";
 
-interface ICartelito {
-  name: string;
+async function fakeFetch(name: string) {
+  // do some fetch
+  await new Promise((resolve) => setTimeout(resolve, 600));
+  // After finished, show the modal
+  show({
+    name,
+    onConfirm: () => {
+      alert("Modal confirmado");
+      hide();
+    },
+  });
 }
 
-function Cartelito({ name }: ICartelito) {
-  return (
-    <div
-      sx={{
-        position: "fixed",
-        top: 30,
-        bottom: 30,
-        right: 30,
-        left: 30,
-        border: "2px solid blue",
-      }}
-    >
-      {name}
-    </div>
-=======
-
-const Home = () => {
-  const [value, setValue] = React.useState((newValue = 1) => {
-    console.log("rendering state");
-    return newValue;
-  });
+export default function Home() {
+  const [isLoading, setIsLoading] = React.useState(false);
 
   return (
     <>
-      <button className="Papas" onClick={() => setValue(value + 1)}>
-        Update
-      </button>
-      {value}
-    </>
->>>>>>> 0ecea0e5a61fee9de3b276de11f5bd56357e1090
-  );
-}
-
-const { show, hide } = hocActivatable(Cartelito);
-
-export default function Home() {
-  const [name, setName] = React.useState("");
-  return (
-    <div>
       <RenderActivatables />
-      <input onChange={(ev) => setName(ev.target.value)} />
-      <button onClick={() => show({ name })}>ShowCartelito</button>
-      <button onClick={() => hide()}>HideCartelito</button>
-    </div>
+      {isLoading && <h1>Loading</h1>}
+      {!isLoading && (
+        <div sx={{ margin: "auto", maxWidth: "900px", fontSize: "26px" }}>
+          <Explanation />
+          <input
+            sx={{
+              padding: "20px",
+              width: "350px",
+              fontSize: "20px",
+              mr: "10px",
+            }}
+            defaultValue="Ingresa un texto"
+            id="TEXT"
+          />
+          <button
+            sx={{ padding: "20px", width: "150px", fontSize: "20px" }}
+            onClick={() => {
+              setIsLoading(true);
+              fakeFetch(
+                (document.querySelector("#TEXT") as HTMLInputElement).value
+              ).then(() => setIsLoading(false));
+            }}
+          >
+            Show
+          </button>
+        </div>
+      )}
+    </>
   );
 }
